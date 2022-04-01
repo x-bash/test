@@ -2,7 +2,9 @@
 # load in need
 
 x log init test
-xrc:mod ui/latest
+xrc ui/latest
+
+
 
 ___x_cmd_test(){
     ___x_cmd_test_cycle_exec "$@"
