@@ -6,6 +6,11 @@ xrc ui/latest
 
 xrc:mod:lib test    cycle
 
+# TODO: add advise.json
+# TODO: subcmd: ls
+
+# TODO: select specific testcase: x test folder 1-wabc; x test folder ~^[0-9]+-[frame]
+
 ___x_cmd_test(){
     ___x_cmd_test_cycle_exec "$@"
 }
