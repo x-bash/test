@@ -13,6 +13,7 @@ xrc:mod:lib test    cycle
 
 ___x_cmd_test(){
     case "$1" in
+        :)          ;;
         :*)         : other shell ;;
         errexit)    ___x_cmd_test_set_errexit "$@" ;;
         *)          ___x_cmd_test_cycle_exec "$@" ;;
