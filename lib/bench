@@ -64,7 +64,6 @@ ___x_cmd_test_bench_strim_inner(){
 ___x_cmd_test_bench_trim_inner(){
     local i
     local s
-    t="abcdefghijklmnopqrstuvwxyz"
     for i in $(seq 1 "$1"); do
         s="${data%
 ztheme
