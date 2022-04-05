@@ -4,7 +4,7 @@
 x log init test
 xrc ui/latest
 
-xrc:mod:lib test    cycle
+xrc:mod:lib test    cycle bench
 
 # TODO: add advise.json
 # TODO: subcmd: ls
@@ -15,6 +15,7 @@ ___x_cmd_test(){
     case "$1" in
         :)          ;;
         :*)         : other shell ;;
+        bench)      shift; ___x_cmd_test_bench "$@" ;;
         errexit)    ___x_cmd_test_set_errexit "$@" ;;
         *)          ___x_cmd_test_cycle_exec "$@" ;;
     esac
