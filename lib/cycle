@@ -43,7 +43,7 @@ ___x_cmd_test_cycle_init(){
     xrc:mod assert/latest
     exec 6<>/dev/stderr
 
-    x log +testcase
+    x log +cycle
 
     alias @assert:errexit='___x_cmd_test_errexit on'
     alias @assert:errexit:off='___x_cmd_test_errexit off'
