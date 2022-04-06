@@ -36,7 +36,7 @@ ___x_cmd_test_cycle_exec(){
 # x log init testcase
 
 ___x_cmd_test_log_indent(){
-    printf "%s" "   ------->  " >&2
+    printf "%s" "      >>>>>>>>  " >&2
 }
 
 # Section: cycle init
