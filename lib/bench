@@ -82,13 +82,6 @@ ___x_cmd_test_bench_varget_inner(){
     done
 }
 
-___x_cmd_test_bench_plus_inner(){
-    local i
-    t=1
-    for i in $(seq 1 "$1"); do
-        let t=t+1
-    done
-}
 
 
 # Section: data
