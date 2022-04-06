@@ -26,6 +26,14 @@ ___x_cmd_test_bench_run(){
     printf "\n"
 }
 
+___x_cmd_test_bench_plus_inner(){
+    local i
+    t=1
+    for i in $(seq 1 "$1"); do
+        let t=t+1
+    done
+}
+
 
 # Section: arrget
 
@@ -104,7 +112,7 @@ xdk
 xrc
 zuz
 )
-fi
+
 
 # EndSection
 
