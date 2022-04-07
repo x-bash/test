@@ -15,7 +15,7 @@ ___x_cmd_test(){
     case "$1" in
         :)          ;;
         :*)         : other shell ;;
-        bench)      shift; ( . "$___X_CMD_ROOT_MOD/test/lib/bench" "$@" ) ;;
+        bench)      shift; ( . "$___X_CMD_ROOT_MOD/test/lib/bench"; ___x_cmd_test_bench "$@" ) ;;
         errexit)    shift; ___x_cmd_test_errexit "$@" ;;
         *)          ___x_cmd_test_cycle_exec "$@" ;;
     esac
