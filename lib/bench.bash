@@ -1,7 +1,7 @@
 
 ___x_cmd_test_bench_all(){
     local i
-    for i in echo plus strim trim varget get file command; do
+    for i in echo plus strim trim varget get file command whileshift; do
         ___x_cmd_test_bench "$i"
     done
 }

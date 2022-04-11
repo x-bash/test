@@ -12,12 +12,13 @@ ___x_cmd_test_bench(){
         get)        ___x_cmd_test_bench_run get 1000000 ;;
         file)       ___x_cmd_test_bench_run file 10000 ;;
         command)    ___x_cmd_test_bench_run command 100000 ;;
+        whileshift) ___x_cmd_test_bench_run whileshift 10000 ;;
         varget)     ___x_cmd_test_bench_run varget 100000 ;;
         ""|all)     ___x_cmd_test_bench_all ;;
     esac
 }
 
-
+# . ./bench.bash
 if [ -z "$USING_POSIX" ]; then
     # xrc:mod test/lib/bench.bash
     . ./lib/bench.bash
@@ -82,6 +83,19 @@ ___x_cmd_test_bench_varget_inner(){
     done
 }
 
+
+___x_cmd_test_whileshift_f(){
+    while [ $# -gt 0 ]; do
+        shift
+    done
+}
+
+___x_cmd_test_bench_whileshift_inner(){
+    local i
+    for i in $(seq 1 "$1"); do
+        ___x_cmd_test_whileshift_f v___x_cmd_test_bench_run___x_cmd_test_bench_run1 v___x_cmd_test_bench_run___x_cmd_test_bench_run2 v___x_cmd_test_bench_run___x_cmd_test_bench_run3 v___x_cmd_test_bench_run___x_cmd_test_bench_run4 v___x_cmd_test_bench_run___x_cmd_test_bench_run5 v___x_cmd_test_bench_run___x_cmd_test_bench_run6 v___x_cmd_test_bench_run___x_cmd_test_bench_run7 v___x_cmd_test_bench_run___x_cmd_test_bench_run8 v___x_cmd_test_bench_run___x_cmd_test_bench_run9 v___x_cmd_test_bench_run___x_cmd_test_bench_run10
+    done
+}
 
 
 # Section: data
