@@ -18,10 +18,7 @@ ___x_cmd_test_cycle_exec(){
         fi
 
         if [ -d "$target" ]; then
-            NAME="" INDENT="" ___x_cmd_test___cycle_exec_folder_main "$@"
-
-            # cd "$target" || exit 1
-            # ___x_cmd_test___cycle_exec_folder "$@"
+            NAME="" INDENT="" ___x_cmd_test___cycle_exec_folder "$@"
             return
         fi
 
@@ -152,25 +149,25 @@ ___x_cmd_test___cycle_exec_file(){
 # EndSection
 
 # Section: cycle exec folder
-___x_cmd_test___cycle_exec_folder_main(){
+___x_cmd_test___cycle_exec_folder(){
+    local testcase="${1:?Provide testcase}"
     cd "$testcase" || return 1
 
     [ -f ./init ] && . ./init
     NAME="$NAME/$testcase" INDENT="${INDENT}    " \
-        ___x_cmd_test___cycle_exec_folder "$@"
-    code=$?
+        ___x_cmd_test___cycle_exec_folder_iterate "$@"
+    local code=$?
     [ -f ./tini ] && . ./tini
     return $code
 }
 
-___x_cmd_test___cycle_exec_folder(){
-
+___x_cmd_test___cycle_exec_folder_iterate(){
     local testcase
     local global_code=0
     local code
     for testcase in *; do
         case "$testcase" in
-            setup|teardown)         continue ;;
+            setup|teardown|init|tini|_*)         continue ;;
         esac
 
         (
@@ -196,9 +193,9 @@ ___x_cmd_test___cycle_exec_folder(){
 
 
 ___x_cmd_test___cycle_exec_folder_inner(){
-    local testcase="${1:?Provide testcase}"; shift
+    local testcase="${1:?Provide testcase}"
 
-    if ! ___x_cmd_test___cycle_exclude "$testcase" "$@"; then
+    if ! ___x_cmd_test___cycle_exclude "$@"; then
         printf "\033[2;36m%s\033[0m\n" "${INDENT}>>> $NAME $testcase  ---<SKIP>"
         return 0
     fi
@@ -206,7 +203,8 @@ ___x_cmd_test___cycle_exec_folder_inner(){
     printf "\033[1;34m%s\033[0m\n" "${INDENT}>>> $NAME $testcase"
 
     [ -f ./setup ] && . ./setup
-    ( ___x_cmd_test___cycle_exec_folder_main "$testcase" "$@" )
+    ( ___x_cmd_test___cycle_exec_folder "$@" )
+    local code=$?
     [ -f ./teardown ] &&  . ./teardown
 
     s="$(___x_cmd_ui_sep '─')"
