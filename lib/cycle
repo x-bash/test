@@ -150,11 +150,11 @@ ___x_cmd_test___cycle_exec_file(){
 
 # Section: cycle exec folder
 ___x_cmd_test___cycle_exec_folder(){
-    local testcase="${1:?Provide testcase in ___x_cmd_test___cycle_exec_folder}"
-    cd "$testcase" || return 1
+    local testfolder="${1:?Provide testfolder in ___x_cmd_test___cycle_exec_folder}"
+    cd "$testfolder" || return 1
 
     [ -f ./init ] && . ./init
-    NAME="$NAME/$testcase" INDENT="${INDENT}    " \
+    NAME="$NAME/$testfolder" INDENT="${INDENT}    " \
         ___x_cmd_test___cycle_exec_folder_iterate "$@"
     local code=$?
     [ -f ./tini ] && . ./tini
