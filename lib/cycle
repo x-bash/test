@@ -18,7 +18,7 @@ ___x_cmd_test_cycle_exec(){
         fi
 
         if [ -d "$target" ]; then
-            NAME="" INDENT="" ___x_cmd_test___cycle_exec_folder "$@"
+            NAME="" INDENT="" ___x_cmd_test___cycle_exec_folder "$target" "$@"
             return
         fi
 
