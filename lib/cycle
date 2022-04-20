@@ -112,7 +112,7 @@ ___x_cmd_test___cycle_exclude(){
 # Section: cycle exec file
 ___x_cmd_test___cycle_exec_file(){
 
-    local testcase="${1:?Provide testcase}"
+    local testcase="${1:?Provide testcase in ___x_cmd_test___cycle_exec_file}"
 
     if ! ___x_cmd_test___cycle_exclude "$testcase" "$@"; then
         printf "\033[2;36m%s\033[0m\n" "${INDENT}-[ ] $NAME $testcase   ---<SKIP>"
@@ -150,7 +150,7 @@ ___x_cmd_test___cycle_exec_file(){
 
 # Section: cycle exec folder
 ___x_cmd_test___cycle_exec_folder(){
-    local testcase="${1:?Provide testcase}"
+    local testcase="${1:?Provide testcase in ___x_cmd_test___cycle_exec_folder}"
     cd "$testcase" || return 1
 
     [ -f ./init ] && . ./init
