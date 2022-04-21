@@ -154,7 +154,7 @@ ___x_cmd_test___cycle_exec_folder(){
     cd "$testfolder" || return 1
 
     [ -f ./init ] && . ./init
-    NAME="$NAME/$testfolder" INDENT="${INDENT}    " \
+    NAME="$NAME$testfolder" INDENT="${INDENT}    " \
         ___x_cmd_test___cycle_exec_folder_iterate "$@"
     local code=$?
     [ -f ./tini ] && . ./tini
