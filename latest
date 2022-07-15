@@ -4,7 +4,7 @@
 x log init test
 xrc ui/latest
 
-xrc:mod:lib test    cycle_share     cycle   cycle_con
+xrc:mod:lib test    cycle_share     cycle
 
 # TODO: add advise.json
 # TODO: subcmd: ls
