@@ -89,7 +89,7 @@ ___x_cmd_test___cycle_exec_folder_iterate(){
     local code
     for testcase in *; do
         case "$testcase" in
-            setup|teardown|init|tini|_*)         continue ;;
+            setup|teardown|init|tini|lib|_*)         continue ;;
         esac
 
         (
