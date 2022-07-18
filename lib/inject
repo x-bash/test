@@ -1,7 +1,7 @@
 
 ___x_cmd_test_source_inner_inject(){
     while [ $# -gt 0 ]; do
-        if [ "${1%/*}" = "$___X_CMD_TEST_INJECT_MOD" ]; then
+        if [ "${1%%/*}" = "$___X_CMD_TEST_INJECT_MOD" ]; then
             . "$___X_CMD_TEST_INJECT_PATH/${1#*/}"
         else
             . "$___X_CMD_ROOT_MOD/$1"
@@ -11,7 +11,7 @@ ___x_cmd_test_source_inner_inject(){
 }
 
 ___x_cmd_test_source_inner_lib_inject(){
-    local mod="${1:?Provide module name}"; shift
+    local mod="${1:?Provide module name}"
     if [ "$___X_CMD_TEST_INJECT_MOD" = "$mod" ]; then
         local ___X_CMD_ROOT_MOD="$___X_CMD_TEST_INJECT_PATH"
     fi

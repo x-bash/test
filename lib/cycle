@@ -1,4 +1,4 @@
-
+echo hi
 ___x_cmd_test_cycle_exec(){
     local target="${1}"
     local WSROOT
