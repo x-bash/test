@@ -19,10 +19,13 @@ ___x_cmd_test_source_inner_lib_inject(){
 }
 
 ___x_cmd_test_inject(){
-    alias xrc:mod=___x_cmd_test_source_inner_inject
-    alias xrc:mod:lib=___x_cmd_test_source_inner_lib_inject
     ___X_CMD_TEST_INJECT_MOD="${1:?Provide module}"
     ___X_CMD_TEST_INJECT_PATH="${2:?Provide path}"
+}
+
+___x_cmd_test_inject_apply(){
+    alias xrc:mod=___x_cmd_test_source_inner_inject
+    alias xrc:mod:lib=___x_cmd_test_source_inner_lib_inject
 }
 
 ___x_cmd_test_inject_recover(){
