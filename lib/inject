@@ -19,11 +19,16 @@ ___x_cmd_test_source_inner_lib_inject(){
 }
 
 ___x_cmd_test_inject(){
+    if [ "$#" -ne 2 ]; then
+        x:log "Provide two arguments: <module> <path>"
+        return 1
+    fi
     ___X_CMD_TEST_INJECT_MOD="${1:?Provide module}"
     ___X_CMD_TEST_INJECT_PATH="${2:?Provide path}"
 }
 
 ___x_cmd_test_inject_apply(){
+    [ -n "$___X_CMD_TEST_INJECT_MOD" ] || return
     alias xrc:mod=___x_cmd_test_source_inner_inject
     alias xrc:mod:lib=___x_cmd_test_source_inner_lib_inject
 }
