@@ -32,6 +32,7 @@ ___x_cmd_test_cycle_exec(){
     local code="$?"
 
     ___x_cmd_ui_sep "━"
+    ___x_cmd_test_inject_recover
     return "$code"
 }
 
