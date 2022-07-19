@@ -32,7 +32,7 @@ ___x_cmd_test_inject_apply(){
     [ -n "$___X_CMD_TEST_INJECT_MOD" ] || return
     alias xrc:mod=___x_cmd_test_source_inner_inject
     alias xrc:mod:lib=___x_cmd_test_source_inner_lib_inject
-    ___x_cmd_xrc_source_file "$___X_CMD_TEST_INJECT_MOD"
+    [ ! -f "$___X_CMD_TEST_INJECT_PATH/latest" ] || . "$___X_CMD_TEST_INJECT_PATH/latest"
 }
 
 ___x_cmd_test_inject_recover(){
