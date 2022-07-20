@@ -13,7 +13,7 @@ ___x_cmd_test_source_inner_inject(){
 ___x_cmd_test_source_inner_lib_inject(){
     local mod="${1:?Provide module name}"; shift
     if [ "$___X_CMD_TEST_INJECT_MOD" = "$mod" ]; then
-        local ___X_CMD_ROOT_MOD="${___X_CMD_TEST_INJECT_PATH%/*}"
+        ___X_CMD_ROOT_MOD="${___X_CMD_TEST_INJECT_PATH%/*}"
         mod="${___X_CMD_TEST_INJECT_PATH##*/}"
     fi
     ___x_cmd_source_inner_lib "$mod" "$@"
@@ -48,4 +48,5 @@ ___x_cmd_test_inject_recover(){
     alias xrc:mod:lib=___x_cmd_source_inner_lib
     ___X_CMD_TEST_INJECT_MOD=
     ___X_CMD_TEST_INJECT_PATH=
+    ___X_CMD_ROOT_MOD="$___X_CMD_ROOT"
 }
