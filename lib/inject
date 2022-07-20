@@ -20,6 +20,14 @@ ___x_cmd_test_source_inner_lib_inject(){
 }
 
 ___x_cmd_test_inject(){
+    case "$1" in
+        apply)      ___x_cmd_test_inject_apply ;;
+        recover)    ___x_cmd_test_inject_recover ;;
+        *)          ___x_cmd_test_inject_init "$@";;
+    esac
+}
+
+___x_cmd_test_inject_init(){
     if [ "$#" -ne 2 ]; then
         x:info "Provide two arguments: <module> <path>"
         return 1
